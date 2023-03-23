@@ -71,18 +71,20 @@ namespace MarketAPI.Controllers
          
         //[HttpPut("{id}")]
         [HttpPost]
-        [Route("Update/{id}")]
-        public IActionResult UpdateProduct(int id, Products product)
+        [Route("Update")]
+        public IActionResult UpdateProduct(Products product)
         {
-            //var productObject = _productService.GetById(id);
-           // if (productObject == null || product.Id != id)
-           if (product.Id != id)
+            try
             {
-                return BadRequest("ID is not matched");
+                _productService.Update(product);
+                _productService.Save();
+                return GetById(product.Id);
             }
-            _productService.Update(product);
-            _productService.Save();
-            return GetById(id);
+            catch (Exception e)
+            {
+                return Ok(e.Message);
+            }
+
         }
 
         [HttpPost]

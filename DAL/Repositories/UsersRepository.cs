@@ -1,6 +1,7 @@
 ﻿using DAL.Data;
 using DAL.Interfaces;
 using DAL.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,12 @@ namespace DAL.Repositories
         }
         public void Update(Users _object)
         {
+            var isUserExist = _dbContext.Users.Where(x => x.Id == _object.Id).FirstOrDefault();
+            if (isUserExist == null)
+            {
+                throw new Exception("ProductId doesn't exist");
+            }
+            _dbContext.Entry(isUserExist).State = EntityState.Detached;
             _dbContext.Users.Update(_object);
             _dbContext.SaveChanges();
         }

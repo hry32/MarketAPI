@@ -70,16 +70,21 @@ namespace MarketAPI.Controllers
         }
         //[HttpPut("{id}")]
         [HttpPost]
-        [Route("Update/{id}")]
-        public IActionResult UpdatePerson(int id, Users person)
+        [Route("Update")]
+        public IActionResult UpdatePerson(Users person)
         {
-            if (id != person.Id)
+            try
             {
-                return BadRequest("IDs are not matched");
+                _userService.Update(person);
+                _userService.Save();
+                return GetById(person.Id);
             }
-            _userService.Update(person);
-            _userService.Save();
-            return GetById(id);
+            catch (Exception e)
+            {
+                return Ok(e.Message);
+            }
+
+
         }
         // [HttpGet("{Id}")]
         [HttpPost]
