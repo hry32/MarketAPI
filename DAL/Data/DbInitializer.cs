@@ -1,5 +1,5 @@
 ﻿using DAL.Data;
-using DAL.Models;
+using MarketApi.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

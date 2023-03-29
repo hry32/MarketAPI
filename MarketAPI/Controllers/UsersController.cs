@@ -1,4 +1,4 @@
-﻿using DAL.Models;
+﻿using MarketApi.Domain.Models;
 using DAL.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;

@@ -1,12 +1,9 @@
 ﻿using BAL.DTO;
 using DAL.Data;
-using DAL.Models;
-using DAL.Interfaces;
-using Microsoft.EntityFrameworkCore;
+using MarketApi.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using BAL.Interfaces;
 using Newtonsoft.Json;
 

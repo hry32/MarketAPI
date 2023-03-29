@@ -19,7 +19,7 @@ namespace MarketAPI
         public static void Main(string[] args)
         {
             Log.Logger = new LoggerConfiguration()
-              .MinimumLevel.Override("Microsoft", Serilog.Events.LogEventLevel.Warning)
+              .MinimumLevel.Override("Microsoft", Serilog.Events.LogEventLevel.Information)
               .MinimumLevel.Override("System", Serilog.Events.LogEventLevel.Error)
              .WriteTo.File("logs/log.txt", rollingInterval: RollingInterval.Day)
              .CreateLogger();

@@ -1,5 +1,5 @@
 using DAL.Data;
-using DAL.Models;
+using MarketApi.Domain.Models;
 using BAL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;

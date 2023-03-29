@@ -1,6 +1,6 @@
 ﻿using BAL.Interfaces;
 using BAL.Service;
-using DAL.Models;
+using MarketApi.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;

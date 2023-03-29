@@ -1,4 +1,4 @@
-﻿using DAL.Models;
+﻿using MarketApi.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -13,13 +13,14 @@ namespace DAL.Data
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
 
         {
+            //checking if DB is created
             this.Database.EnsureCreated();
         }
 
-        protected override void OnModelCreating(ModelBuilder builder)
+       /* protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-        }
+        }*/
         public DbSet<Users> Users { get; set; }
         public DbSet<Products> Products { get; set; }
         public DbSet<Orders> Orders { get; set; }

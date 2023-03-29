@@ -27,4 +27,8 @@
     <PackageReference Include="Unity" Version="5.11.10" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MarketApi.Domain\MarketApi.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
