@@ -1,13 +1,9 @@
 ﻿using BAL.Interfaces;
-using BAL.Service;
 using MarketApi.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Unity;
+
 
 namespace MarketAPI.Controllers
 {
@@ -20,6 +16,7 @@ namespace MarketAPI.Controllers
         {
             this._orderService = orderService;
         }
+       
         //GET All Person  
         [HttpGet]
         //[HttpPost]

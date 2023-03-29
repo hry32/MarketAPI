@@ -1,5 +1,5 @@
 ﻿using MarketApi.Domain.Models;
-using DAL.Repositories;
+using MarketApi.Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
@@ -14,10 +14,11 @@ namespace MarketAPI.Controllers
     [ApiController]
     public class ProductsController : Controller
     {
-       private readonly ProductsRepository _productService;
-        public ProductsController(IUnityContainer container)
+
+        private readonly IRepository<Products> _productService;
+        public ProductsController(IRepository<Products> productService)
         {
-           _productService = container.Resolve<ProductsRepository>();
+            this._productService = productService;
         }
 
         //GET All Person  

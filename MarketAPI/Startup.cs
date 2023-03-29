@@ -1,22 +1,17 @@
 using DAL.Data;
 using MarketApi.Domain.Models;
-using BAL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Unity;
 using Unity.Injection;
 using BAL.Service;
 using BAL.Interfaces;
+using MarketApi.Domain.Interfaces;
+using DAL.Repositories;
 
 namespace MarketAPI
 {
@@ -38,6 +33,8 @@ namespace MarketAPI
 
         public void ConfigureContainer(IUnityContainer container)
         {
+            container.RegisterType<IRepository<Users>, UsersRepository>();
+            container.RegisterType<IRepository<Products>, ProductsRepository>();
             container.RegisterType<IOrderService, OrderService>();
            container.RegisterType<AppDbContext>(new InjectionConstructor(new DbContextOptionsBuilder<AppDbContext>()
                 .UseSqlServer(_configuration.GetConnectionString("DefaultConnection"))

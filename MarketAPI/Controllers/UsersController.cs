@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Unity;
+using MarketApi.Domain.Interfaces;
 
 namespace MarketAPI.Controllers
 {
@@ -14,10 +15,10 @@ namespace MarketAPI.Controllers
     [ApiController]
     public class UsersController : Controller
     {
-        private readonly UsersRepository _userService;
-        public UsersController(IUnityContainer container)
+        private readonly IRepository<Users> _userService;
+        public UsersController(IRepository<Users> userService)
         {
-            _userService = container.Resolve<UsersRepository>();
+            this._userService = userService;
         }
         /**********************************************/
 

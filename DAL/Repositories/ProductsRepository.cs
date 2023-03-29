@@ -6,11 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
+
 namespace DAL.Repositories
 {
     public class ProductsRepository: IRepository<Products>
     {
         AppDbContext _dbContext;
+       
         public ProductsRepository(AppDbContext applicationDbContext)
         {
             _dbContext = applicationDbContext;
